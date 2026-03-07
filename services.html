@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Local Experience Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .service-header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200'); background-size: cover; color: white; padding: 100px 0; }
+        .map-container { text-align: center; margin: 40px 0; border: 5px solid #764ba2; border-radius: 15px; overflow: hidden; }
+        table { border-collapse: separate; border-spacing: 0 10px; }
+        tr { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+    <header class="service-header text-center">
+        <h1>Community Service Directory</h1>
+    </header>
+
+    <div class="container my-5">
+        <h2>Interactive Service Map</h2>
+        <p>Click on different areas of the community center to explore services:</p>
+        
+        <div class="map-container">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" usemap="#communitymap" class="img-fluid w-100" alt="Community map image">
+            <map name="communitymap">
+                <area shape="rect" coords="34,44,270,350" alt="Workshops" href="#workshops">
+                <area shape="circle" coords="400,200,100" alt="Support" href="#support">
+            </map>
+        </div>
+        
+
+        <h2 class="mt-5" id="workshops">Available Services Table</h2>
+        <table class="table table-hover mt-3">
+            <thead class="table-dark">
+                <tr><th>Service Name</th><th>Category</th><th>Availability</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Home Repair</td><td>Maintenance</td><td>Mon-Fri</td></tr>
+                <tr><td>Math Tutoring</td><td>Education</td><td>Weekends</td></tr>
+                <tr><td>Pet Sitting</td><td>Personal Care</td><td>24/7</td></tr>
+            </tbody>
+        </table>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>Why Choose Local?</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">✓ Support neighborhood growth</li>
+                    <li class="list-group-item">✓ Faster response times</li>
+                    <li class="list-group-item">✓ Trusted community vetting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
