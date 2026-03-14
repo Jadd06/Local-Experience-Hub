@@ -6,6 +6,15 @@
     <title>Our Services | Local Experience Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .navbar {
+            background-color: rgba(118, 75, 162, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
         .service-header { 
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200'); 
             background-size: cover; 
@@ -33,9 +42,11 @@
             border-radius: 15px;
             transition: all 0.3s ease;
             background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .service-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
@@ -47,10 +58,32 @@
         table { border-collapse: separate; border-spacing: 0 10px; }
         tr { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         
-        .badge-available { background-color: #e3fcef; color: #00a651; }
+        .badge-available { background-color: #e3fcef; color: #00a651; padding: 8px 12px; border-radius: 10px; }
+
+        footer {
+            background-color: #212529;
+            color: #ccc;
+        }
     </style>
 </head>
 <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Local Experience Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Explore Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <header class="service-header text-center">
         <h1 class="display-4 fw-bold">Community Service Directory</h1>
         <p class="lead">Hand-picked help from people you can actually trust.</p>
@@ -59,8 +92,8 @@
     <div class="container my-5">
         <div class="row mb-5">
             <div class="col-lg-8 mx-auto text-center">
-                <h2>Interactive Service Map</h2>
-                <p class="text-muted">Need to find where the magic happens? Click on different areas of our community hub image to see what's popping up nearby.</p>
+                <h2 class="fw-bold">Interactive Service Map</h2>
+                <p class="text-muted">Click on the center of the image to jump to our detailed breakdown.</p>
                 
                 <div class="map-container shadow">
                     <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" 
@@ -76,7 +109,7 @@
             </div>
         </div>
 
-        <h2 class="mb-4" id="workshops">Services!</h2>
+        <h2 class="mb-4" id="workshops">At a Glance</h2>
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-dark">
@@ -92,19 +125,19 @@
                         <td class="fw-bold">Home Cleaning</td>
                         <td>Maintenance</td>
                         <td>Mon - Fri (9am - 6pm)</td>
-                        <td><span class="badge badge-available">Taking Bookings</span></td>
+                        <td><span class="badge-available">Taking Bookings</span></td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Math Tutoring</td>
                         <td>Education</td>
                         <td>Weekends Only</td>
-                        <td><span class="badge badge-available">2 Slots Left</span></td>
+                        <td><span class="badge-available">2 Slots Left</span></td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Pet Sitting</td>
                         <td>Personal Care</td>
                         <td>24/7 (Booking Required)</td>
-                        <td><span class="badge badge-available">Available</span></td>
+                        <td><span class="badge-available">Available</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -112,7 +145,7 @@
 
         <div id="service-details" class="row mt-5 pt-4">
             <div class="col-12 mb-4">
-                <h2>More Information!</h2>
+                <h2 class="fw-bold">The Nitty Gritty</h2>
                 <p class="text-muted">Everything you need to know about what we offer.</p>
             </div>
             
@@ -120,11 +153,10 @@
                 <div class="card h-100 service-card p-4">
                     <div class="icon-box">✨</div>
                     <h4 class="fw-bold">Home Cleaning</h4>
-                    <p>Forget the weekend scrub. Our local cleaning pros treat your home like their own. Whether you need a deep seasonal reset or a weekly tidy-up, we bring the shine back to your space using products that are safe for kids and pets.</p>
-                    <ul class="ps-3 small">
+                    <p>Forget the weekend scrub. Our local cleaning pros treat your home like their own using eco-friendly products.</p>
+                    <ul class="ps-3 small text-muted">
                         <li>Standard & Deep Cleaning options</li>
                         <li>Eco-friendly supplies included</li>
-                        <li>Same-day availability in some areas</li>
                     </ul>
                 </div>
             </div>
@@ -133,11 +165,10 @@
                 <div class="card h-100 service-card p-4">
                     <div class="icon-box">📚</div>
                     <h4 class="fw-bold">Math Tutoring</h4>
-                    <p>Algebra shouldn't keep you up at night. Our tutors are local university students who break down complex problems into stuff that actually makes sense. We focus on confidence, not just grades.</p>
-                    <ul class="ps-3 small">
-                        <li>Topics ranging from elementary to High School level</li>
+                    <p>Algebra shouldn't keep you up at night. Our tutors break down complex problems into stuff that makes sense.</p>
+                    <ul class="ps-3 small text-muted">
+                        <li>Algebra, Calculus, and SAT Prep</li>
                         <li>One-on-one or small groups</li>
-                        <li>Snacks usually included (if at the Hub!)</li>
                     </ul>
                 </div>
             </div>
@@ -146,16 +177,35 @@
                 <div class="card h-100 service-card p-4">
                     <div class="icon-box">🐕</div>
                     <h4 class="fw-bold">Pet Sitting</h4>
-                    <p>Vacations are better when you aren't worried about your furry best friend. We don't do cages; we do cuddles. Your pet stays in a loving home environment with verified animal lovers right in the neighborhood.</p>
-                    <ul class="ps-3 small">
+                    <p>Vacations are better when you aren't worried. Your pet stays in a loving home environment right in the neighborhood.</p>
+                    <ul class="ps-3 small text-muted">
                         <li>Daily photo/video updates</li>
-                        <li>Administering meds if needed</li>
                         <li>Certified tummy scratchers</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Site Map</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+                        <li><a href="services.html" class="text-decoration-none text-secondary">Services</a></li>
+                        <li><a href="contact.html" class="text-decoration-none text-secondary">Contact & Inquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0"><strong>Developer:</strong> Jadd Dela Pena</p>
+                    <p class="mb-0"><strong>Course:</strong> ITS-121-1L_BM14 </p>
+                    <p class="mb-0"><strong>School Year:</strong> 2025-2026</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
