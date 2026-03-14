@@ -155,20 +155,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="row mt-5">
-            <div class="col-md-6">
-                <div class="p-4 bg-white rounded-4 shadow-sm">
-                    <h3>Why Choose Local?</h3>
-                    <p>Sure, there are apps for this, but we're actual humans.</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-transparent">✅ <strong>Real People:</strong> You’re supporting your neighbor’s side hustle or small business.</li>
-                        <li class="list-group-item bg-transparent">✅ <strong>Fast & Easy:</strong> Since we’re close by, we don't have to fight two hours of traffic to get to you.</li>
-                        <li class="list-group-item bg-transparent">✅ <strong>Peace of Mind:</strong> Everyone here is vetted by the community. No strangers, just friends you haven't met.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -187,7 +173,6 @@
                 if (!area.dataset.coords) {
                     area.dataset.coords = area.coords;
                 }
-                
                 const coords = area.dataset.coords.split(',');
                 const newCoords = coords.map(c => Math.round(c * ratio));
                 area.coords = newCoords.join(',');
