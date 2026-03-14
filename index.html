@@ -3,154 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Experience Hub | Home</title>
+    <title>Our Services | Local Experience Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .service-header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200'); 
+            background-size: cover; 
+            color: white; 
+            padding: 100px 0; 
         }
 
-        body {
-            background-color: #f8f9fa;
+        .map-container { 
+            text-align: center; 
+            margin: 40px auto; 
+            border: 5px solid #764ba2; 
+            border-radius: 15px; 
+            overflow: hidden;
+            max-width: 600px; 
         }
 
-        .navbar {
-            background-color: rgba(118, 75, 162, 0.9) !important;
-            backdrop-filter: blur(10px);
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .hero-section {
-            padding: 60px 0;
-            background: var(--primary-gradient); 
-            color: white;
-            border-bottom: 5px solid;
-            border-image: linear-gradient(to right, #667eea, #764ba2) 1; 
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .card {
-            border-radius: 20px; 
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .card:hover {
-            transform: translateY(-10px); 
+        .icon-box {
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
-        .carousel-item img {
-            height: 500px;
-            object-fit: cover;
-        }
-
-        footer {
-            background-color: #212529;
-            color: #ccc;
-        }
+        table { border-collapse: separate; border-spacing: 0 10px; }
+        tr { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        .badge-available { background-color: #e3fcef; color: #00a651; padding: 8px 12px; border-radius: 10px; }
     </style>
 </head>
-<body>
+<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Local Experience Hub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Explore Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Community Event">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Empowering Local Talent</h1>
-                    <p>Connecting you with the heart of your neighborhood.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Local Services">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Professional Skills</h1>
-                    <p>Find trusted local experts for every need.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-
-    <section class="hero-section text-center">
-        <div class="container">
-            <h2 class="display-4">Welcome to the Hub</h2>
-            <p class="lead">The ultimate platform for discovering community-driven services, from tutors to pet sitners.</p>
-        </div>
-    </section>
+    <header class="service-header text-center">
+        <h1 class="display-4 fw-bold">Community Service Directory</h1>
+        <p class="lead">Hand-picked help from people you can actually trust.</p>
+    </header>
 
     <div class="container my-5">
-        <h3 class="text-center mb-4">Featured Services</h3>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Home Maintenance</h5>
-                        <p class="card-text">Find reliable cleaners and helpers to manage your homes</p>
-                        <a href="services.html" class="btn btn-primary">Learn More</a>
-                    </div>
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="fw-bold">Interactive Service Map</h2>
+                <p class="text-muted">Need to find where the magic happens? Click on different areas of our community hub image to see what's popping up nearby.</p>
+                
+                <div class="map-container shadow">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" 
+                         usemap="#communitymap" 
+                         id="community-img"
+                         alt="Community map image">
+                    
+                    <map name="communitymap">
+                        <area shape="rect" coords="34,44,270,350" alt="Workshops" href="#service-details">
+                        <area shape="circle" coords="400,200,100" alt="Support" href="#service-details">
+                    </map>
                 </div>
             </div>
+        </div>
+
+        <h2 class="mb-4" id="workshops">At a Glance</h2>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Category</th>
+                        <th>Availability</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Home Cleaning</td>
+                        <td>Maintenance</td>
+                        <td>Mon - Fri (9am - 6pm)</td>
+                        <td><span class="badge-available">Taking Bookings</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Math Tutoring</td>
+                        <td>Education</td>
+                        <td>Weekends Only</td>
+                        <td><span class="badge-available">2 Slots Left</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Pet Sitting</td>
+                        <td>Personal Care</td>
+                        <td>24/7 (Booking Required)</td>
+                        <td><span class="badge-available">Available</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="service-details" class="row mt-5 pt-4">
+            <div class="col-12 mb-4">
+                <h2 class="fw-bold">The Nitty Gritty</h2>
+                <p class="text-muted">Everything you need to know about what we offer.</p>
+            </div>
+            
             <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Educational Tutoring</h5>
-                        <p class="card-text">Connect with experienced students and retired teachers nearby.</p>
-                        <a href="services.html" class="btn btn-primary">Learn More</a>
-                    </div>
+                <div class="card h-100 service-card p-4">
+                    <div class="icon-box">✨</div>
+                    <h4 class="fw-bold">Home Cleaning</h4>
+                    <p>Forget the weekend scrub. Our local cleaning pros treat your home like their own. Whether you need a deep seasonal reset or a weekly tidy-up, we bring the shine back to your space using eco-friendly products.</p>
+                    <ul class="ps-3 small text-muted">
+                        <li>Standard & Deep Cleaning options</li>
+                        <li>Eco-friendly supplies included</li>
+                        <li>Same-day availability in some areas</li>
+                    </ul>
                 </div>
             </div>
+
             <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Pet Sitting & Care</h5>
-                        <p class="card-text">Trustworthy neighborhood sitters to look after your furry friends while you're away.</p>
-                        <a href="services.html" class="btn btn-primary">Learn More</a>
-                    </div>
+                <div class="card h-100 service-card p-4">
+                    <div class="icon-box">📚</div>
+                    <h4 class="fw-bold">Math Tutoring</h4>
+                    <p>Algebra shouldn't keep you up at night. Our tutors break down complex problems into stuff that actually makes sense. We focus on building confidence, not just passing tests.</p>
+                    <ul class="ps-3 small text-muted">
+                        <li>Algebra, Calculus, and SAT Prep</li>
+                        <li>One-on-one or small groups</li>
+                        <li>Flexible scheduling for students</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 service-card p-4">
+                    <div class="icon-box">🐕</div>
+                    <h4 class="fw-bold">Pet Sitting</h4>
+                    <p>Vacations are better when you aren't worried about your furry best friend. We don't do cages; we do cuddles. Your pet stays in a loving home environment right in the neighborhood.</p>
+                    <ul class="ps-3 small text-muted">
+                        <li>Daily photo/video updates</li>
+                        <li>Administering meds if needed</li>
+                        <li>Certified tummy scratchers</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Site Map</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
-                        <li><a href="services.html" class="text-decoration-none text-secondary">Services</a></li>
-                        <li><a href="contact.html" class="text-decoration-none text-secondary">Contact & Inquiry</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0"><strong>Developer:</strong> Jadd Dela Pena</p>
-                    <p class="mb-0"><strong>Course:</strong> ITS-121-1L_BM14 </p>
-                    <p class="mb-0"><strong>School Year:</strong> 2025-2026</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const image = document.getElementById('community-img');
+        const map = document.querySelector('map[name="communitymap"]');
+        const originalWidth = 1200; 
+
+        function resizeMap() {
+            const currentWidth = image.clientWidth;
+            const ratio = currentWidth / originalWidth;
+            const areas = map.getElementsByTagName('area');
+
+            for (let area of areas) {
+                if (!area.dataset.coords) {
+                    area.dataset.coords = area.coords;
+                }
+                const coords = area.dataset.coords.split(',');
+                const newCoords = coords.map(c => Math.round(c * ratio));
+                area.coords = newCoords.join(',');
+            }
+        }
+
+        window.addEventListener('load', resizeMap);
+        window.addEventListener('resize', resizeMap);
+    </script>
 </body>
 </html>
