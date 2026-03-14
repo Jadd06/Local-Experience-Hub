@@ -1,3 +1,8 @@
+To make the image smaller and keep the image map functional, we need to address a common issue: HTML <map> coordinates are static. If you shrink the image with CSS, the clickable areas stay at their original pixel locations and will no longer align with the picture.
+
+I have included a small JavaScript snippet at the bottom of the code. This will automatically recalculate the coordinates whenever the window is resized or the image loads, ensuring your "Workshops" and "Support" links actually work at the new size.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +11,28 @@
     <title>Our Services | Local Experience Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .service-header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200'); background-size: cover; color: white; padding: 100px 0; }
-        .map-container { text-align: center; margin: 40px 0; border: 5px solid #764ba2; border-radius: 15px; overflow: hidden; }
+        .service-header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200'); 
+            background-size: cover; 
+            color: white; 
+            padding: 100px 0; 
+        }
+
+        .map-container { 
+            text-align: center; 
+            margin: 40px auto; 
+            border: 5px solid #764ba2; 
+            border-radius: 15px; 
+            overflow: hidden;
+            max-width: 600px; 
+        }
+
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         table { border-collapse: separate; border-spacing: 0 10px; }
         tr { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     </style>
@@ -22,13 +47,16 @@
         <p>Click on different areas of the community center to explore services:</p>
         
         <div class="map-container">
-            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" usemap="#communitymap" class="img-fluid w-100" alt="Community map image">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" 
+                 usemap="#communitymap" 
+                 id="community-img"
+                 alt="Community map image">
+            
             <map name="communitymap">
                 <area shape="rect" coords="34,44,270,350" alt="Workshops" href="#workshops">
                 <area shape="circle" coords="400,200,100" alt="Support" href="#support">
             </map>
         </div>
-        
 
         <h2 class="mt-5" id="workshops">Available Services Table</h2>
         <table class="table table-hover mt-3">
@@ -36,7 +64,7 @@
                 <tr><th>Service Name</th><th>Category</th><th>Availability</th></tr>
             </thead>
             <tbody>
-                <tr><td>Home Repair</td><td>Maintenance</td><td>Mon-Fri</td></tr>
+                <tr><td>Home Cleaning</td><td>Maintenance</td><td>Mon-Fri</td></tr>
                 <tr><td>Math Tutoring</td><td>Education</td><td>Weekends</td></tr>
                 <tr><td>Pet Sitting</td><td>Personal Care</td><td>24/7</td></tr>
             </tbody>
@@ -55,5 +83,30 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const image = document.getElementById('community-img');
+        const map = document.querySelector('map[name="communitymap"]');
+        const originalWidth = 1200; // The width the coords were originally made for
+
+        function resizeMap() {
+            const currentWidth = image.clientWidth;
+            const ratio = currentWidth / originalWidth;
+            const areas = map.getElementsByTagName('area');
+
+            for (let area of areas) {
+                if (!area.dataset.coords) {
+                    area.dataset.coords = area.coords;
+                }
+                
+                const coords = area.dataset.coords.split(',');
+                const newCoords = coords.map(c => Math.round(c * ratio));
+                area.coords = newCoords.join(',');
+            }
+        }
+
+        window.addEventListener('load', resizeMap);
+        window.addEventListener('resize', resizeMap);
+    </script>
 </body>
 </html>
